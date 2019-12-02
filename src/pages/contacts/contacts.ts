@@ -5,6 +5,7 @@ import { AddPage } from '../add/add';
 import { ContactPage } from '../contact/contact';
 import { RegisterPage } from '../register/register';
 import { ConfirmPage } from '../confirm/confirm';
+import { EditPage } from '../edit/edit';
 
 /**
  * Generated class for the ContactsPage page.
@@ -21,6 +22,7 @@ import { ConfirmPage } from '../confirm/confirm';
 export class ContactsPage {
   numViews = 0;
   idUser = 0;
+  edit = EditPage;
   confirm = ConfirmPage;
   shContact = ContactPage;
   contacts :any = [];
@@ -35,11 +37,10 @@ export class ContactsPage {
 
   }
   ionViewDidEnter() {
-  }
-  ionViewWillEnter()
-  {
+    this.idUser = this.navParams.get('idUser');
+    this.contacts = [];
     const jsuser = {
-      idU:this.idUser
+      id_user:this.idUser
     }
     this.http.post('/contacto/contactoshw/', jsuser).subscribe(data => {
       this.contacts = data;
@@ -47,6 +48,9 @@ export class ContactsPage {
     }, error => {
       console.log(JSON.stringify(error))
     });
+  }
+  ionViewWillEnter()
+  {
   }
   ionViewWillUnload()
   {
@@ -64,7 +68,7 @@ export class ContactsPage {
   }
   editCont(con:any)
   {
-
+    this.navCtrl.push(this.edit, {contact:con});
   }
   deleteCont(idCon)
   {

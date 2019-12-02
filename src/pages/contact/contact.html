@@ -11,26 +11,28 @@
   </ion-header>
   
   <ion-content padding>
-      <ion-card style="background-color: beige;">
+      <ion-card style="background-color: darkseagreen;">
           <ion-card-header>
-            <h1>
-                {{contact.number}}
-            </h1> 
+            <ion-thumbnail>
+              <img src={{contact.img}}>
+            </ion-thumbnail>
           </ion-card-header>
-          <ion-card-content style="color: cadetblue;">
-            <img src={{contact.img}}>
-            <ion-list >
-              <ion-item>
-                <p>{{contact.email}}</p>
+          <ion-card-content style="background-color: darkseagreen;">
+            <ion-list>
+              <ion-item style="background-color: rgb(159, 255, 242);">
+                  <h1><ion-icon  name="logo-whatsapp"></ion-icon>  {{contact.number}}</h1>
               </ion-item>
-              <ion-item>
-                  <p>{{contact.facebook}}</p>
+              <ion-item style="background-color: rgb(159, 255, 242);">
+                <h1><ion-icon name="mail"></ion-icon> {{contact.email}}</h1>
               </ion-item>
-              <ion-item>
-                  <p>{{contact.instagram}}</p>
+              <ion-item style="background-color: rgb(159, 255, 242);">
+                  <h1><ion-icon name="logo-facebook"></ion-icon>  {{contact.facebook}}</h1>
               </ion-item>
-              <ion-item>
-                  <p>{{contact.twitter}}</p>
+              <ion-item style="background-color: rgb(159, 255, 242);">
+                  <h1><ion-icon name="logo-instagram"></ion-icon> {{contact.instagram}}</h1>
+              </ion-item>
+              <ion-item style="background-color: rgb(159, 255, 242);">
+                  <h1><ion-icon name="logo-twitter"></ion-icon> {{contact.twitter}}</h1>
               </ion-item>
             </ion-list>
           </ion-card-content>

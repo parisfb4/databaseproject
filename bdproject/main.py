@@ -70,8 +70,7 @@ def contactoshw():
         contacts = []
         data = request.get_json()
         query = "SELECT * from contact WHERE id_user = %s"
-        cursor.execute(query, (
-            data['idU'],))
+        cursor.execute(query, (data['id_user'],))
         for contact in cursor.fetchall():
             d = {
                 'id': contact[0],
@@ -122,7 +121,8 @@ def usuarios():
         if cursor.rowcount:
             ans = True
             cursor.execute(idquery, (data['username'], data['password']))
-            return jsonify({'ans': ans, 'id': cursor.fetchall()[0]})
+            idUs = cursor.fetchall()[0][0]
+            return jsonify({'ans': ans, 'id': idUs})
         else:
             return jsonify({'data': 'Error'})
 
@@ -158,5 +158,39 @@ def delete():
             # print(movie)
         print(users)
         return jsonify(users)
+
+@app.route('/contactosupd/', methods=["GET", "POST"])
+def update():
+    ans = False
+    if request.method == "POST":
+        data = request.get_json()
+        print(data)
+        query = "UPDATE contact SET name = %s, number = %s, email = %s, facebook = %s, instagram = %s,  twitter = %s, img = %s WHERE id = %s"
+#        idquery = "SELECT id from user WHERE username = %s AND password = %s"
+        cursor.execute(query, (data['name'], data['number'], data['email'], data['facebook'], data['instagram'], data['twitter'], data['img'], data['id']))
+        bd.commit()
+
+        if cursor.rowcount:
+            ans = True
+            #            cursor.execute(idquery, (data['username'], data['password']))
+            return jsonify({'ans': ans})
+        else:
+            return jsonify({'data': 'Error'})
+    else:
+        users = []
+        query = "SELECT * FROM user"
+        cursor.execute(query)
+
+        for movie in cursor.fetchall():
+            d = {
+                'id': movie[0],
+                'username': movie[1],
+                'password': movie[2]
+            }
+            users.append(d)
+            # print(movie)
+        print(users)
+        return jsonify(users)
+
 
 app.run(debug=True)

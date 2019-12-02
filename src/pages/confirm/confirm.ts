@@ -19,6 +19,7 @@ export class ConfirmPage {
   }
 
   ionViewDidEnter() {
+    alert('Deleted');
     this.navCtrl.pop();
   }
 

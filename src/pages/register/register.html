@@ -10,7 +10,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content style="background-color: floralwhite;" padding>
     <ion-list>
         <ion-item>
           <ion-input placeholder="Usermame" [(ngModel)]="username"></ion-input>
@@ -22,5 +22,5 @@
             <ion-input placeholder="Repeat password" type="password" [(ngModel)]="repassword"></ion-input>
         </ion-item>
     </ion-list>
-    <button ion-button full (click)="save()">Register</button>
+    <button ion-button style="background-color: indigo;" full (click)="save()">Register</button>
 </ion-content>

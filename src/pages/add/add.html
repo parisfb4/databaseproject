@@ -10,37 +10,42 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding>
-   <ion-list>
-      <ion-item>
-        <ion-label floating>Name</ion-label>
-        <ion-input type="text" [(ngModel)]="nameCont"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Number</ion-label>
-        <ion-input type="text" [(ngModel)]="numberCont"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label floating>Email</ion-label>
-          <ion-input type="text" [(ngModel)]="emailCont"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label floating>Facebook</ion-label>
-          <ion-input type="text" [(ngModel)]="faceCont"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label floating>Instagram</ion-label>
-          <ion-input type="text" [(ngModel)]="instaCont"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label floating>Twitter</ion-label>
-          <ion-input type="text" [(ngModel)]="twitCont"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label floating>Img</ion-label>
-          <ion-input type="text" [(ngModel)]="imgCont"></ion-input>
-      </ion-item>
-    </ion-list>
-    <button ion-button block (click)="addCont()">Add</button>
+  <ion-content padding style="color: lightgreen; background-color: lightslategray;">
+  <ion-card style="background-color: lightsteelblue;" >
+      <ion-list>
+          <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="nameCont"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Number</ion-label>
+            <ion-input type="tel" [(ngModel)]="numberCont"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="email" [(ngModel)]="emailCont"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Facebook</ion-label>
+              <ion-input type="text" [(ngModel)]="faceCont"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Instagram</ion-label>
+              <ion-input type="text" [(ngModel)]="instaCont"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Twitter</ion-label>
+              <ion-input type="text" [(ngModel)]="twitCont"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>Img</ion-label>
+              <ion-input type="text" [(ngModel)]="imgCont"></ion-input>
+          </ion-item>
+        </ion-list>
+  </ion-card>
+  <div>
+      <button ion-button full style="background-color: mediumaquamarine;" (click)="addCont()">Add</button>
+
+    </div>
   </ion-content>
 

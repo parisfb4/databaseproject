@@ -34,26 +34,33 @@ export class AddPage {
   }
   addCont()
   {
-    if(this.imgCont.length == 0)
+    if(this.nameCont.length == 0 || this.numberCont.length == 0)
     {
-      this.imgCont = "/assets/imgs/mainicon.png";
+      alert("Please fill at least name and number.")
     }
-    const con =
-    {
-      id_user: this.idUser,
-      name: this.nameCont,
-      number: this.numberCont,
-      email: this.emailCont,
-      facebook: this.faceCont,
-      instagram: this.instaCont,
-      twitter: this.twitCont,
-      img: this.imgCont
+    else{
+      if(this.imgCont.length == 0)
+      {
+        this.imgCont = "/assets/imgs/mainicon.png";
+      }
+      const con =
+      {
+        id_user: this.idUser,
+        name: this.nameCont,
+        number: this.numberCont,
+        email: this.emailCont,
+        facebook: this.faceCont,
+        instagram: this.instaCont,
+        twitter: this.twitCont,
+        img: this.imgCont
+      }
+      this.http.post("/contacto/contactos/", con).subscribe(data => {
+        console.log(JSON.stringify(data));
+        this.navCtrl.pop();
+      }, error => {
+        console.log(JSON.stringify(error));
+      });
     }
-    this.http.post("/contacto/contactos/", con).subscribe(data => {
-      console.log(JSON.stringify(data));
-      this.navCtrl.pop();
-    }, error => {
-      console.log(JSON.stringify(error));
-    });
+    
   }
 }

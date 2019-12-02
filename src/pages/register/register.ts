@@ -25,6 +25,7 @@ export class RegisterPage {
   answer:any = {} 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient) {
+    
   }
 
   ionViewDidLoad() {

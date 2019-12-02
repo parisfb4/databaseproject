@@ -15,10 +15,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let contact of contacts">
-        <ion-card>
+<ion-content padding style="background-color: mediumturquoise;">
+  <ion-list lines="none">
+    <ion-item  lines="none" style="background-color: cornflowerblue;" *ngFor="let contact of contacts">
+        <ion-card lines="none" style="background-color:darkturquoise;"> 
             <ion-item style="color: royalblue; background-color:darkturquoise;">
               <ion-avatar item-start (click)="showContact(contact)">
                     <img src={{contact.img}}> <!-- Esta entre corchetes porque se modificará -->
