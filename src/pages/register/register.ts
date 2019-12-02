@@ -39,7 +39,7 @@ export class RegisterPage {
     if(this.username.length == 0 || this.password.length==0 || this.repassword.length==0)
     {
       alert("Pleas fill all fields");
-    }else{
+    }else if(this.password == this.repassword){
       const user = {
         username: this.username,
         password: this.password
@@ -57,6 +57,9 @@ export class RegisterPage {
       {
         console.log(JSON.stringify(error));
       });
+    }else
+    {
+      alert("The passwords doesn't match");
     }
   }
 
