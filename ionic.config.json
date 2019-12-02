@@ -1,5 +1,11 @@
 {
   "name": "proyectoF",
   "integrations": {},
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/contacto",
+      "proxyUrl": "http://127.0.0.1:5000"
+    }
+  ]
 }
